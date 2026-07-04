@@ -152,6 +152,7 @@ jobs:
           files: ${{ env.NAME }}-rs-bin/${{ env.NAME }}-rs-bin-${{ env.VERSION }}-1-x86_64.pkg.tar.zst
 
   publish-linux:
+    if: github.repository == '0-don/clippy'
     needs: [setup, build-tauri]
     runs-on: ubuntu-22.04
     permissions:
@@ -302,6 +303,7 @@ jobs:
           copr-cli build clippy /tmp/clippy.spec
 
   publish-windows:
+    if: github.repository == '0-don/clippy'
     needs: [setup, build-tauri]
     runs-on: windows-latest
     steps:
